@@ -8,18 +8,17 @@ import { getServerSideUser } from '@/lib/payload-utils'
 import { cookies } from 'next/headers'
 import UserAccountNav from './UserAccountNav'
 import MobileNav from './MobileNav'
-import { readFileSync } from 'fs'
-
+import ThemeToggle from './ThemeToggle'
 
 const Navbar = async () => {
   const nextCookies = cookies()
   const { user } = await getServerSideUser(nextCookies)
 
   return (
-    <div className='bg-white sticky z-50 top-0 inset-x-0 h-16'>
-      <header className='relative bg-white'>
+    <div className='sticky z-50 top-0 inset-x-0 h-16 bg-background'>
+      <header className='relative bg-background'>
         <MaxWidthWrapper>
-          <div className='border-b border-gray-200'>
+          <div className='border-b border-border'>
             <div className='flex h-16 items-center'>
               <MobileNav />
 
@@ -35,6 +34,8 @@ const Navbar = async () => {
 
               <div className='ml-auto flex items-center'>
                 <div className='hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6'>
+                  <ThemeToggle />
+
                   {user ? null : (
                     <Link
                       href='/sign-in'
@@ -47,7 +48,7 @@ const Navbar = async () => {
 
                   {user ? null : (
                     <span
-                      className='h-6 w-px bg-gray-200'
+                      className='h-6 w-px bg-border'
                       aria-hidden='true'
                     />
                   )}
@@ -66,7 +67,7 @@ const Navbar = async () => {
 
                   {user ? (
                     <span
-                      className='h-6 w-px bg-gray-200'
+                      className='h-6 w-px bg-border'
                       aria-hidden='true'
                     />
                   ) : null}
@@ -74,7 +75,7 @@ const Navbar = async () => {
                   {user ? null : (
                     <div className='flex lg:ml-6'>
                       <span
-                        className='h-6 w-px bg-gray-200'
+                        className='h-6 w-px bg-border'
                         aria-hidden='true'
                       />
                     </div>

@@ -14,9 +14,9 @@ const Footer = () => {
   ]
 
   return (
-    <footer className='bg-white flex-grow-0'>
+    <footer className='bg-background flex-grow-0'>
       <MaxWidthWrapper>
-        <div className='border-t border-gray-200'>
+        <div className='border-t border-border'>
           {pathsToMinimize.includes(pathname) ? null : (
             <div className='pb-8 pt-16'>
               <div className='flex justify-center'>
@@ -31,12 +31,12 @@ const Footer = () => {
                 <div className='absolute inset-0 overflow-hidden rounded-lg'>
                   <div
                     aria-hidden='true'
-                    className='absolute bg-zinc-50 inset-0 bg-gradient-to-br bg-opacity-90'
+                    className='absolute bg-muted inset-0 bg-gradient-to-br bg-opacity-90'
                   />
                 </div>
 
                 <div className='text-center relative mx-auto max-w-sm'>
-                  <h3 className='font-semibold text-gray-900'>
+                  <h3 className='font-semibold text-foreground'>
                     Become a seller
                   </h3>
                   <p className='mt-2 text-sm text-muted-foreground'>
@@ -45,7 +45,7 @@ const Footer = () => {
                     minutes.{' '}
                     <Link
                       href='/sign-in?as=seller'
-                      className='whitespace-nowrap font-medium text-black hover:text-zinc-900'>
+                      className='whitespace-nowrap font-medium text-foreground hover:text-foreground/80'>
                       Get started &rarr;
                     </Link>
                   </p>
@@ -67,17 +67,17 @@ const Footer = () => {
             <div className='flex space-x-8'>
               <Link
                 href='#'
-                className='text-sm text-muted-foreground hover:text-gray-600'>
+                className='text-sm text-muted-foreground hover:text-foreground'>
                 Terms
               </Link>
               <Link
                 href='#'
-                className='text-sm text-muted-foreground hover:text-gray-600'>
+                className='text-sm text-muted-foreground hover:text-foreground'>
                 Privacy Policy
               </Link>
               <Link
                 href='#'
-                className='text-sm text-muted-foreground hover:text-gray-600'>
+                className='text-sm text-muted-foreground hover:text-foreground'>
                 Cookie Policy
               </Link>
             </div>

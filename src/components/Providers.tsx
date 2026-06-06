@@ -7,6 +7,7 @@ import {
 } from '@tanstack/react-query'
 import { trpc } from '@/trpc/client'
 import { httpBatchLink } from '@trpc/client'
+import ThemeProvider from './ThemeProvider'
 
 const Providers = ({ children }: PropsWithChildren) => {
   const [queryClient] = useState(() => new QueryClient())
@@ -27,13 +28,15 @@ const Providers = ({ children }: PropsWithChildren) => {
   )
 
   return (
-    <trpc.Provider
-      client={trpcClient}
-      queryClient={queryClient}>
-      <QueryClientProvider client={queryClient}>
-        {children}
-      </QueryClientProvider>
-    </trpc.Provider>
+    <ThemeProvider>
+      <trpc.Provider
+        client={trpcClient}
+        queryClient={queryClient}>
+        <QueryClientProvider client={queryClient}>
+          {children}
+        </QueryClientProvider>
+      </trpc.Provider>
+    </ThemeProvider>
   )
 }
 
